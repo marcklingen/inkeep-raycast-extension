@@ -1,6 +1,8 @@
 # Inkeep Raycast Extension
 
-A Raycast extension for interacting with the Inkeep Completions API. This extension allows you to ask questions and get AI-powered answers from your knowledge base.
+A Raycast extension for interacting with the Inkeep Completions API ([docs](https://docs.inkeep.com/ai-api/chat-completions-api)). This extension allows you to ask questions and get AI-powered answers from your knowledge base.
+
+![Inkeep Raycast Extension](./metadata/inkeep-1.png)
 
 ## Setup
 
