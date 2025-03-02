@@ -31,7 +31,7 @@
     {
       "name": "inkeep",
       "title": "Inkeep",
-      "description": "Get a response from Inkeep which indexes private documentation.",
+      "description": "Get a response from Inkeep which indexes private documentation about the product maintained by the user.",
       "icon": "icon.svg"
     }
   ],
@@ -44,11 +44,19 @@
       "required": true
     },
     {
+      "name": "aiApiBaseUrl",
+      "title": "API Base URL",
+      "description": "The base URL for the Inkeep API (e.g., https://api.inkeep.com/v1)",
+      "type": "textfield",
+      "default": "https://api.inkeep.com/v1",
+      "required": true
+    },
+    {
       "name": "model",
       "title": "Model",
-      "description": "The Inkeep model to use (e.g., inkeep-qa-sonnet-3-5, inkeep-qa-gpt-4o)",
+      "description": "The Inkeep model to use",
       "type": "textfield",
-      "default": "inkeep-qa-sonnet-3-5",
+      "default": "inkeep-qa-expert",
       "required": true
     }
   ],

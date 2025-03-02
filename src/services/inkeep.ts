@@ -3,6 +3,7 @@ import { getPreferenceValues } from "@raycast/api";
 
 interface Preferences {
   apiKey: string;
+  aiApiBaseUrl: string;
   model: string;
 }
 
@@ -99,10 +100,13 @@ export interface InkeepResponse {
 
 export async function getInkeepCompletion(prompt: string): Promise<InkeepResponse> {
   const preferences = getPreferenceValues<Preferences>();
+  const apiBaseUrl = preferences.aiApiBaseUrl.endsWith("/")
+    ? preferences.aiApiBaseUrl.slice(0, -1)
+    : preferences.aiApiBaseUrl;
 
   try {
     const response = await axios.post<InkeepCompletionResponse>(
-      "https://api.inkeep.com/v1/chat/completions",
+      `${apiBaseUrl}/chat/completions`,
       {
         model: preferences.model,
         messages: [
@@ -189,13 +193,16 @@ export async function streamInkeepCompletion(
   onComplete: (fullResponse: InkeepResponse) => void,
 ): Promise<void> {
   const preferences = getPreferenceValues<Preferences>();
+  const apiBaseUrl = preferences.aiApiBaseUrl.endsWith("/")
+    ? preferences.aiApiBaseUrl.slice(0, -1)
+    : preferences.aiApiBaseUrl;
   let fullContent = "";
   const toolCalls: ToolCall[] = [];
   let partialToolCalls: Partial<ToolCall>[] = [];
 
   try {
     const response = await axios.post(
-      "https://api.inkeep.com/v1/chat/completions",
+      `${apiBaseUrl}/chat/completions`,
       {
         model: preferences.model,
         messages: [
