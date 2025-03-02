@@ -235,6 +235,7 @@ export default function Command(props: LaunchProps<{ arguments: CommandArguments
       <Detail
         markdown={streamedResponse || "Loading response from Inkeep..."}
         metadata={renderMetadata(currentPrompt, false)}
+        isLoading
         actions={
           <ActionPanel>
             <Action
