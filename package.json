@@ -2,31 +2,70 @@
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "inkeep",
   "title": "Inkeep",
-  "description": "",
-  "icon": "extension-icon.png",
-  "author": "user_55",
+  "description": "Interact with Inkeep Completions API to get AI-powered answers from your knowledge base.",
+  "icon": "icon.png",
+  "author": "marcklingen",
   "categories": [
-    "Productivity"
+    "Productivity",
+    "Developer Tools",
+    "Documentation"
   ],
   "license": "MIT",
   "commands": [
     {
       "name": "ask-inkeep",
-      "title": "Ask Inkeep",
-      "description": "It get's an answer from inkeep to answer this question.",
-      "mode": "view"
+      "title": "Inkeep",
+      "description": "Interact with Inkeep to get answers from your knowledge base.",
+      "mode": "view",
+      "icon": "icon.png",
+      "arguments": [
+        {
+          "name": "prompt",
+          "placeholder": "What would you like to ask?",
+          "type": "text",
+          "required": false
+        }
+      ]
     }
   ],
   "tools": [
     {
-      "name": "ask-inkeep",
-      "title": "Ask inkeep",
-      "description": "It get's a response from inkeep which indexes private documentation."
+      "name": "inkeep",
+      "title": "Inkeep",
+      "description": "Interact with Inkeep to get answers from your knowledge base.",
+      "icon": "icon.png"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "apiKey",
+      "title": "API Key",
+      "description": "Your Inkeep API Key",
+      "type": "password",
+      "required": true
+    },
+    {
+      "name": "aiApiBaseUrl",
+      "title": "API Base URL",
+      "description": "The base URL for the Inkeep API (e.g., https://api.inkeep.com/v1)",
+      "type": "textfield",
+      "default": "https://api.inkeep.com/v1",
+      "required": true
+    },
+    {
+      "name": "model",
+      "title": "Model",
+      "description": "The Inkeep model to use",
+      "type": "textfield",
+      "default": "inkeep-qa-expert",
+      "required": true
     }
   ],
   "dependencies": {
     "@raycast/api": "^1.93.0",
-    "@raycast/utils": "^1.17.0"
+    "@raycast/utils": "^1.17.0",
+    "@types/axios": "^0.14.4",
+    "axios": "^1.8.1"
   },
   "devDependencies": {
     "@raycast/eslint-config": "^1.0.11",
