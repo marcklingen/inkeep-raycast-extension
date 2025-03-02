@@ -3,20 +3,21 @@
   "name": "inkeep",
   "title": "Inkeep",
   "description": "Interact with Inkeep Completions API to get AI-powered answers from your knowledge base.",
-  "icon": "icon.svg",
-  "author": "user_55",
+  "icon": "icon.png",
+  "author": "marcklingen",
   "categories": [
     "Productivity",
-    "Developer Tools"
+    "Developer Tools",
+    "Documentation"
   ],
   "license": "MIT",
   "commands": [
     {
       "name": "ask-inkeep",
       "title": "Inkeep",
-      "description": "Get an answer from Inkeep using your knowledge base.",
+      "description": "Interact with Inkeep to get answers from your knowledge base.",
       "mode": "view",
-      "icon": "icon.svg",
+      "icon": "icon.png",
       "arguments": [
         {
           "name": "prompt",
@@ -31,8 +32,8 @@
     {
       "name": "inkeep",
       "title": "Inkeep",
-      "description": "Get a response from Inkeep which indexes private documentation about the product maintained by the user.",
-      "icon": "icon.svg"
+      "description": "Interact with Inkeep to get answers from your knowledge base.",
+      "icon": "icon.png"
     }
   ],
   "preferences": [

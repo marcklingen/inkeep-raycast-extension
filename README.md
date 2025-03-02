@@ -2,44 +2,13 @@
 
 A Raycast extension for interacting with the Inkeep Completions API. This extension allows you to ask questions and get AI-powered answers from your knowledge base.
 
-## Features
-
-- Ask questions to Inkeep and get AI-powered answers
-- Configure the model to use (e.g., inkeep-qa-sonnet-3-5, inkeep-qa-gpt-4o)
-- Copy responses to clipboard
-- Use as an AI tool in Raycast
-- Compatible with Raycast's AI Extension framework
-
 ## Setup
 
 1. Install the extension
 2. Configure your Inkeep API key in the extension preferences
-3. Configure the model to use (default: inkeep-qa-sonnet-3-5)
+3. Optional: Configure model and API base URL
 
-## Usage
-
-### Command: Ask Inkeep
-
-1. Open Raycast
-2. Type "Ask Inkeep"
-3. Enter your question
-4. Press Enter to submit
-
-### AI Tool: Ask Inkeep
-
-You can also use the Inkeep extension as an AI tool in Raycast:
-
-1. In any Raycast command, use the AI tool
-2. Type "Ask Inkeep: [your question]"
-3. The response will be displayed in the AI tool results
-
-Examples:
-
-- "Ask Inkeep: How do I install the SDK?"
-- "Ask Inkeep: What are the API rate limits?"
-- "Ask Inkeep: How to configure authentication?"
-
-## API Key
+### API Key
 
 To get an API key:
 
@@ -51,17 +20,20 @@ To get an API key:
 6. Click on **Create**
 7. Use the generated **API key** in the extension preferences
 
-## Models
-
-The extension supports various Inkeep models:
-
-- `inkeep-qa-sonnet-3-5` (recommended)
-- `inkeep-qa-gpt-4o`
-- `inkeep-qa-gpt-4-turbo`
-- `inkeep-context-sonnet-3-5`
-- `inkeep-context-gpt-4-turbo`
-- `inkeep-context-gpt-4o`
-
 ## Support
 
 If you encounter any issues or have questions, please open an issue on the GitHub repository.
+
+## TODO Before Submitting to Raycast Store
+
+The following items need to be addressed before submitting this extension to the Raycast store:
+
+3. **Date in Changelog**: Update the date in CHANGELOG.md to reflect the actual release date (currently shows 2024-06-01, which is in the future).
+
+4. **Run Build and Lint**: Before submission, run `npm run build` and fix any linting issues with `npm run lint --fix`.
+
+5. **Screenshots**: Consider adding screenshots to showcase your extension in the Raycast store. These can be added to the README.md file.
+
+6. **Keywords**: Consider adding relevant keywords to the package.json to improve discoverability in the store.
+
+7. **Test with Distribution Build**: Make sure to test the extension with the distribution build to ensure everything works as expected.

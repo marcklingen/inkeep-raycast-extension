@@ -1,9 +1,8 @@
 # Inkeep Changelog
 
-## [Initial Version] - 2024-06-01
+## [Initial Version] - 2025-03-02
 
 - Initial version of the Inkeep Raycast extension
-- Added "Ask Inkeep" command
+- Added "Ask Inkeep" command, supports streaming responses, documentation links, and confidence score
 - Added "Ask Inkeep" AI tool
-- Added support for configuring API key and model
-- Made compatible with Raycast's AI Extension framework
+- Added support for configuring API key, model, and API base URL
