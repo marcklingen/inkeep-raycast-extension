@@ -3,7 +3,7 @@
   "name": "inkeep",
   "title": "Inkeep",
   "description": "Interact with Inkeep Completions API to get AI-powered answers from your knowledge base.",
-  "icon": "extension-icon.png",
+  "icon": "icon.svg",
   "author": "user_55",
   "categories": [
     "Productivity",
@@ -16,6 +16,7 @@
       "title": "Inkeep",
       "description": "Get an answer from Inkeep using your knowledge base.",
       "mode": "view",
+      "icon": "icon.svg",
       "arguments": [
         {
           "name": "prompt",
@@ -30,7 +31,8 @@
     {
       "name": "inkeep",
       "title": "Inkeep",
-      "description": "Get a response from Inkeep which indexes private documentation."
+      "description": "Get a response from Inkeep which indexes private documentation.",
+      "icon": "icon.svg"
     }
   ],
   "preferences": [
