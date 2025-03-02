@@ -5,6 +5,7 @@
   "description": "Interact with Inkeep Completions API to get AI-powered answers from your knowledge base.",
   "icon": "icon.png",
   "author": "marcklingen",
+  "owner": "langfuse",
   "categories": [
     "Productivity",
     "Developer Tools",
