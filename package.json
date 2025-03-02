@@ -2,31 +2,51 @@
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "inkeep",
   "title": "Inkeep",
-  "description": "",
+  "description": "Interact with Inkeep Completions API to get AI-powered answers from your knowledge base.",
   "icon": "extension-icon.png",
   "author": "user_55",
   "categories": [
-    "Productivity"
+    "Productivity",
+    "Developer Tools"
   ],
   "license": "MIT",
   "commands": [
     {
       "name": "ask-inkeep",
-      "title": "Ask Inkeep",
-      "description": "It get's an answer from inkeep to answer this question.",
+      "title": "Inkeep",
+      "description": "Get an answer from Inkeep using your knowledge base.",
       "mode": "view"
     }
   ],
   "tools": [
     {
-      "name": "ask-inkeep",
-      "title": "Ask inkeep",
-      "description": "It get's a response from inkeep which indexes private documentation."
+      "name": "inkeep",
+      "title": "Inkeep",
+      "description": "Get a response from Inkeep which indexes private documentation."
+    }
+  ],
+  "preferences": [
+    {
+      "name": "apiKey",
+      "title": "API Key",
+      "description": "Your Inkeep API Key",
+      "type": "password",
+      "required": true
+    },
+    {
+      "name": "model",
+      "title": "Model",
+      "description": "The Inkeep model to use (e.g., inkeep-qa-sonnet-3-5, inkeep-qa-gpt-4o)",
+      "type": "textfield",
+      "default": "inkeep-qa-sonnet-3-5",
+      "required": true
     }
   ],
   "dependencies": {
     "@raycast/api": "^1.93.0",
-    "@raycast/utils": "^1.17.0"
+    "@raycast/utils": "^1.17.0",
+    "@types/axios": "^0.14.4",
+    "axios": "^1.8.1"
   },
   "devDependencies": {
     "@raycast/eslint-config": "^1.0.11",
