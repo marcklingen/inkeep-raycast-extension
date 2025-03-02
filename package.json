@@ -15,7 +15,15 @@
       "name": "ask-inkeep",
       "title": "Inkeep",
       "description": "Get an answer from Inkeep using your knowledge base.",
-      "mode": "view"
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "prompt",
+          "placeholder": "What would you like to ask?",
+          "type": "text",
+          "required": false
+        }
+      ]
     }
   ],
   "tools": [
