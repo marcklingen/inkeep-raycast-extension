@@ -187,12 +187,41 @@ export default function Command(props: LaunchProps<{ arguments: Arguments.AskInk
     );
   }
 
+  // Show streaming response if we're streaming
+  if (isStreaming) {
+    return (
+      <Detail
+        markdown={streamedResponse || "Loading response from Inkeep..."}
+        metadata={renderMetadata(currentPrompt, false)}
+        isLoading
+        navigationTitle="Inkeep Response"
+        actions={
+          <ActionPanel>
+            <Action
+              title="Cancel"
+              icon={Icon.XmarkCircle}
+              onAction={() => {
+                setIsStreaming(false);
+                setShowForm(true);
+              }}
+            />
+            {streamedResponse && (
+              <Action.CopyToClipboard title="Copy Current Response" content={streamedResponse} icon={Icon.Clipboard} />
+            )}
+            {links.length > 0 && <Action.OpenInBrowser title="Open First Source" url={links[0].url} icon={Icon.Link} />}
+          </ActionPanel>
+        }
+      />
+    );
+  }
+
   // Show final response if we have one
   if (response) {
     return (
       <Detail
         markdown={response.content}
         metadata={renderMetadata(currentPrompt, true)}
+        navigationTitle="Inkeep Response"
         actions={
           <ActionPanel>
             <Action.CopyToClipboard title="Copy Response" content={response.content} icon={Icon.Clipboard} />
@@ -209,33 +238,6 @@ export default function Command(props: LaunchProps<{ arguments: Arguments.AskInk
                 setShowForm(true);
               }}
             />
-            {links.length > 0 && <Action.OpenInBrowser title="Open First Source" url={links[0].url} icon={Icon.Link} />}
-          </ActionPanel>
-        }
-      />
-    );
-  }
-
-  // Show streaming response if we're streaming
-  if (isStreaming) {
-    return (
-      <Detail
-        markdown={streamedResponse || "Loading response from Inkeep..."}
-        metadata={renderMetadata(currentPrompt, false)}
-        isLoading
-        actions={
-          <ActionPanel>
-            <Action
-              title="Cancel"
-              icon={Icon.XmarkCircle}
-              onAction={() => {
-                setIsStreaming(false);
-                setShowForm(true);
-              }}
-            />
-            {streamedResponse && (
-              <Action.CopyToClipboard title="Copy Current Response" content={streamedResponse} icon={Icon.Clipboard} />
-            )}
             {links.length > 0 && <Action.OpenInBrowser title="Open First Source" url={links[0].url} icon={Icon.Link} />}
           </ActionPanel>
         }
