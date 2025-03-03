@@ -1,12 +1,6 @@
 import axios from "axios";
 import { getPreferenceValues } from "@raycast/api";
 
-interface Preferences {
-  apiKey: string;
-  aiApiBaseUrl: string;
-  model: string;
-}
-
 interface Message {
   role: "user" | "assistant" | "system";
   content: string;
@@ -99,7 +93,7 @@ export interface InkeepResponse {
 }
 
 export async function getInkeepCompletion(prompt: string): Promise<InkeepResponse> {
-  const preferences = getPreferenceValues<Preferences>();
+  const preferences = getPreferenceValues<ExtensionPreferences>();
   const apiBaseUrl = preferences.aiApiBaseUrl.endsWith("/")
     ? preferences.aiApiBaseUrl.slice(0, -1)
     : preferences.aiApiBaseUrl;
@@ -157,6 +151,9 @@ export async function getInkeepCompletion(prompt: string): Promise<InkeepRespons
       },
     );
 
+    if (!response.data.choices || response.data.choices.length === 0) {
+      throw new Error("No completion choices returned from the API");
+    }
     const message = response.data.choices[0].message;
     const result: InkeepResponse = {
       content: message.content,

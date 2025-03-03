@@ -2,11 +2,7 @@ import { Detail, Form, ActionPanel, Action, showToast, Toast, LaunchProps, Icon,
 import { useState, useEffect } from "react";
 import { streamInkeepCompletion, InkeepLink, InkeepResponse, AIAnnotations } from "./services/inkeep";
 
-interface CommandArguments {
-  prompt?: string;
-}
-
-export default function Command(props: LaunchProps<{ arguments: CommandArguments }>) {
+export default function Command(props: LaunchProps<{ arguments: Arguments.AskInkeep }>) {
   const { prompt: initialPrompt } = props.arguments;
   const [isLoading, setIsLoading] = useState(false);
   const [isStreaming, setIsStreaming] = useState(false);
@@ -62,14 +58,10 @@ export default function Command(props: LaunchProps<{ arguments: CommandArguments
               }
             } else if (toolName === "provideAIAnnotations") {
               try {
-                console.log("provideAIAnnotations tool call received with args:", args);
                 const toolData = JSON.parse(args);
-                console.log("Parsed AI annotations tool data:", toolData);
+
                 if (toolData.aiAnnotations) {
-                  console.log("Setting AI annotations:", toolData.aiAnnotations);
                   setAIAnnotations(toolData.aiAnnotations);
-                } else {
-                  console.log("No aiAnnotations found in tool data");
                 }
               } catch (e) {
                 console.error("Error parsing provideAIAnnotations tool call:", e);
@@ -86,10 +78,7 @@ export default function Command(props: LaunchProps<{ arguments: CommandArguments
             setLinks(fullResponse.links);
           }
           if (fullResponse.aiAnnotations) {
-            console.log("AI Annotations received:", fullResponse.aiAnnotations);
             setAIAnnotations(fullResponse.aiAnnotations);
-          } else {
-            console.log("No AI Annotations in fullResponse:", fullResponse);
           }
         },
       );
@@ -137,8 +126,6 @@ export default function Command(props: LaunchProps<{ arguments: CommandArguments
 
   // Render metadata for the Detail view
   function renderMetadata(prompt: string, showConfidence = false) {
-    console.log("Rendering metadata with aiAnnotations:", aiAnnotations);
-
     return (
       <Detail.Metadata>
         <Detail.Metadata.Label title="Query" text={prompt} icon={Icon.MagnifyingGlass} />
